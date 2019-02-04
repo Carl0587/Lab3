@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Page</title>
+</head>
+<body>
+    <button id="add">Add items to the list </button>
+    <button id="clear">Clear</button>
+
+    <p id="mouse-over"> Move your mouse over this message</p>
+    <h1>A list of items</h1>
+<!--Unordered list, empty when the page loads-->
+<ul id="my-list"></ul>
+
+    <script>
+        //Keep track of how many elements have been added
+        let newItemNumber= 1
+
+        let mouseOverCount = 0
+        //find the ul list by th eid. Note the # in the selector
+        let my_list_element = document.querySelector("#my-list")
+
+        //Find the add button and add a click listener
+        document.querySelector('#add').addEventListener('click', function () {
+            if (newItemNumber > 10){
+                return
+            }
+            //Make a new HTML element for this document, of type <li>
+
+            var new_list_item = document.createElement("li")
+
+            new_list_item.innerHTML = `New item ${newItemNumber}`
+
+            my_list_element.appendChild(new_list_item);
+
+            newItemNumber++;
+        //This here will create the even listener to make the clear button work
+        let clear = document.querySelector('#clear').addEventListener('click', function () {
+            my_list_element.innerHTML =''
+            newItemNumber =1
+
+        })
+
+
+        })
+
+        document.querySelector('#mouse-over').addEventListener('mouseover', function () {
+            mouseOverCount++
+            this.innerHTML =`You moused over the message! ${mouseOverCount} times`
+        })
+        document.querySelector('#mouse-over').addEventListener('mouseout', function () {
+            this.innerHTML ='Bye mouse!'
+        })
+
+
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

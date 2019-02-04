@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bands and Movies</title>
+</head>
+<body>
+
+<H1>Bands and Movies</H1>
+
+<P>Last's semester's students liked these bands/artists, foods, and movies.</P>
+
+<button id="show-movies">Only show movies</button>
+<button id="show-bands">Only show bands</button>
+<button id="show-foods">Only show foods</button>
+
+<button id="reset">Show all</button>
+
+<ul>
+    <li class="favorite band">David Bowie</li>
+    <li class="favorite movie">Superman</li>
+    <li class="favorite movie">Star Wars</li>
+    <li class="favorite movie">The Incredibles</li>
+    <li class="favorite band">Taylor Swift</li>
+    <li class="favorite band">Metallica</li>
+    <li class="favorite movie">Finding Nemo</li>
+    <li class="favorite food"> Tortas</li>
+    <li class="favorite food"> BBQ Ribs</li>
+    <li class="favorite food"> Steak</li>
+    <li class="favorite food"> All types of Veggies</li>
+</ul>
+
+
+<script>
+
+    let bands = document.querySelectorAll('.band');
+    let movies = document.querySelectorAll('.movie');
+    let  foods = document.querySelectorAll('.food');
+
+    let allFavorites = document.querySelectorAll('.favorite');
+
+    document.querySelector('#show-movies').addEventListener('click', function() {
+        hideAllListExcept(allFavorites, movies)
+    })
+
+    document.querySelector('#show-bands').addEventListener('click', function() {
+        hideAllListExcept(allFavorites, bands)
+    })
+
+    document.querySelector('#show-foods').addEventListener('click', function () {
+        hideAllListExcept(allFavorites, foods)
+    })
+
+    document.querySelector('#reset').addEventListener('click', function() {
+        setDisplay(allFavorites, 'list-item')
+    });
+
+    function hideAllListExcept(all, except) {
+
+        // Hide everything
+        setDisplay(all, 'none')
+
+        // Display the favorite items
+        except.forEach(function(el) {
+            el.style.display = 'list-item'
+        })
+    }
+
+    // Change the display property of all the elements in the array
+    function setDisplay(elements, display) {
+        elements.forEach(function(el) {
+            el.style.display = display
+        })
+    }
+
+</script>
+
+
+</body>
+</html>
