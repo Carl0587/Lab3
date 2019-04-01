@@ -5,8 +5,10 @@
     <title>Web Page</title>
 </head>
 <body>
+<!--This is were the pixels will be displayed-->
 <p id="pixels"></p>
 <P>Enter some text to add to the list.</P>
+<!--This is the input box that will be added to the list-->
 <input id="list" onfocus="">
 <button id="add-to-list">Add</button>
 <!--//This is an unordered list-->
@@ -20,14 +22,12 @@
         //we then create a variable that wiil look into the input value
         let list_entry = document.querySelector('#list').value
         //we then assign the entry to another variable call input
-        if (list_entry.length < 1 || list_entry.length > 10) {
+        if (list_entry.length < 1 || list_entry.length > 50) {
             alert('Entry has to be between 1 and 50 characters')
         }
         else {
             let input = list_entry
             //this part will create a new entry inside the empty list and
-
-
             let new_list_item = document.createElement("li")
 
             new_list_item.innerHTML = input
@@ -40,9 +40,8 @@
         }
 
     })
-
+    //Variables for the pixel part of the program
     var pixels = document.querySelector("#pixels");
-
     var width = window.innerWidth;
     var height = window.innerHeight;
     var window_area = width * height;
@@ -56,11 +55,9 @@
         width = window.innerWidth;
         height = window.innerHeight;
         window_area = width * height;
-        pixels.innerHTML = "Number of Pixelz = " + window_area;
-
+        pixels.innerHTML = "Number of Pixels ="  + window_area;
     }
 
 </script>
-
 </body>
 </html>
